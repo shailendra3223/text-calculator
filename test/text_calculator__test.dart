@@ -6,4 +6,9 @@ void main() {
     final calc = TextCalculator();
     expect(calc.add(""), 0);
   });
+
+  test('single number returns itself', () {
+    final calc = TextCalculator();
+    expect(calc.add("7"), 7);
+  });
 }
