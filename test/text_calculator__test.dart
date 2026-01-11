@@ -27,5 +27,10 @@ test('supports custom delimiter syntax', () {
   expect(calc.add("//;\n1;2"), 3);
 });
 
+test('throws error when a negative number is passed', () {
+  final calc = TextCalculator();
+  expect(() => calc.add("1,-2"), throwsException);
+});
+
 
 }

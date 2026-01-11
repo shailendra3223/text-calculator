@@ -13,6 +13,11 @@ class TextCalculator {
     final parts = input.split(",");
     final numbers = parts.map((p) => int.parse(p)).toList();
 
+    final negatives = numbers.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw Exception("negative numbers not allowed");
+    }
+
     return numbers.reduce((a, b) => a + b);
   }
 }
