@@ -32,5 +32,13 @@ test('throws error when a negative number is passed', () {
   expect(() => calc.add("1,-2"), throwsException);
 });
 
+test('error message contains all negative numbers', () {
+  final calc = TextCalculator();
+  expect(
+    () => calc.add("1,-2,-3"),
+    throwsA(predicate((e) => e.toString().contains("-2,-3"))),
+  );
+});
+
 
 }

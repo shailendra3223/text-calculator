@@ -15,7 +15,7 @@ class TextCalculator {
 
     final negatives = numbers.where((n) => n < 0).toList();
     if (negatives.isNotEmpty) {
-      throw Exception("negative numbers not allowed");
+      throw Exception("negative numbers not allowed ${negatives.join(",")}");
     }
 
     return numbers.reduce((a, b) => a + b);
