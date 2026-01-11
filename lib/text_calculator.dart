@@ -2,6 +2,12 @@ class TextCalculator {
   int add(String input) {
     if (input.isEmpty) return 0;
 
+    if (input.startsWith("//")) {
+      final delimiter = input[2];
+      input = input.substring(4);
+      input = input.replaceAll(delimiter, ",");
+    }
+
     input = input.replaceAll("\n", ",");
 
     final parts = input.split(",");
@@ -10,4 +16,3 @@ class TextCalculator {
     return numbers.reduce((a, b) => a + b);
   }
 }
- 

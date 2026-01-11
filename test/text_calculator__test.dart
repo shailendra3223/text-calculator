@@ -21,4 +21,11 @@ test('newline works as delimiter', () {
   final calc = TextCalculator();
   expect(calc.add("1\n2,3"), 6);
 });
+
+test('supports custom delimiter syntax', () {
+  final calc = TextCalculator();
+  expect(calc.add("//;\n1;2"), 3);
+});
+
+
 }
