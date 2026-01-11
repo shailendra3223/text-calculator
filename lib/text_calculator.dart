@@ -2,12 +2,12 @@ class TextCalculator {
   int add(String input) {
     if (input.isEmpty) return 0;
 
-    if (!input.contains(",")) {
-      return int.parse(input);
-    }
+    input = input.replaceAll("\n", ",");
 
     final parts = input.split(",");
-    return int.parse(parts[0]) + int.parse(parts[1]);
+    final numbers = parts.map((p) => int.parse(p)).toList();
+
+    return numbers.reduce((a, b) => a + b);
   }
 }
-
+ 
